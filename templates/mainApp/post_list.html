@@ -1,29 +1,128 @@
-
 {% extends 'mainApp/header.html' %}
 
 {% block content %}
-<div id="movie-nav" data-target="#movie-navbar">
-    <div class="container">
-        <h4 class="title" id="trailer">Trailer</h4>
-        <div class="row trailer-wrapper">
-            <div class="col-sm-4 trailer-img-wrapper">
-                <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg" alt="My Hero Academia Heroes Rising"/>
-            </div>
-            <div class="col-sm-8 trailer-video-wrapper">
-                <div class="video-wrapper">
-                    <iframe
-                            class="embed-responsive"
-                            src="https://www.youtube.com/embed/TQIogqaDQCM"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
+<div class ="mb-5">    
+    <div id="movie-nav" data-target="#movie-navbar">
+        <div class="container">
+            <h4 class="title" id="trailer">Trailer</h4>
+            <div class="row trailer-wrapper">
+                <div class="col-sm-4 trailer-img-wrapper">
+                    <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg"
+                         alt="My Hero Academia Heroes Rising"/>
+                </div>
+                <div class="col-sm-8 trailer-video-wrapper">
+                    <div class="video-wrapper">
+                        <iframe
+                                class="embed-responsive"
+                                src="https://www.youtube.com/embed/TQIogqaDQCM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div id="movie-nav" data-target="#movie-navbar">
+        <div class="container">
+            <h4 class="title" id="trailer">Trailer</h4>
+            <div class="row trailer-wrapper">
+                <div class="col-sm-4 trailer-img-wrapper">
+                    <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg"
+                         alt="My Hero Academia Heroes Rising"/>
+                </div>
+                <div class="col-sm-8 trailer-video-wrapper">
+                    <div class="video-wrapper">
+                        <iframe
+                                class="embed-responsive"
+                                src="https://www.youtube.com/embed/TQIogqaDQCM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="movie-nav" data-target="#movie-navbar">
+        <div class="container">
+            <h4 class="title" id="trailer">Trailer</h4>
+            <div class="row trailer-wrapper">
+                <div class="col-sm-4 trailer-img-wrapper">
+                    <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg"
+                         alt="My Hero Academia Heroes Rising"/>
+                </div>
+                <div class="col-sm-8 trailer-video-wrapper">
+                    <div class="video-wrapper">
+                        <iframe
+                                class="embed-responsive"
+                                src="https://www.youtube.com/embed/TQIogqaDQCM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="movie-nav" data-target="#movie-navbar">
+        <div class="container">
+            <h4 class="title" id="trailer">Trailer</h4>
+            <div class="row trailer-wrapper">
+                <div class="col-sm-4 trailer-img-wrapper">
+                    <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg"
+                         alt="My Hero Academia Heroes Rising"/>
+                </div>
+                <div class="col-sm-8 trailer-video-wrapper">
+                    <div class="video-wrapper">
+                        <iframe
+                                class="embed-responsive"
+                                src="https://www.youtube.com/embed/TQIogqaDQCM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    {#    <div id="movieCarousel" class="carousel slide" data-ride="carousel">#}
+    {#        <div class="carousel-inner">#}
+    {#            {% for movie in movies %}#}
+    {#            <div class="carousel-item {% if forloop.first %}active{% endif %}">#}
+    {#                <div class="row">#}
+    {#                    <div class="col-md-6">#}
+    {#                        <img class="movie-img img-fluid" src="{{ movie.poster }}" alt="{{ movie.title }}"/>#}
+    {#                    </div>#}
+    {#                    <div class="col-md-6">#}
+    {#                        <div class="movie-details">#}
+    {#                            <h4 class="title">{{ movie.title }}</h4>#}
+    {#                            <p class="rating">Rating: {{ movie.rating }}</p>#}
+    {#                            <p class="genre">Genre: {{ movie.genre }}</p>#}
+    {#                            <p class="release-year">Release Year: {{ movie.release_year }}</p>#}
+    {#                            <a class="btn btn-primary" href="{{ movie.trailer }}">Watch Trailer</a>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#        <a class="carousel-control-prev" href="#movieCarousel" role="button" data-slide="prev">#}
+    {#            <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+    {#            <span class="sr-only">Previous</span>#}
+    {#        </a>#}
+    {#        <a class="carousel-control-next" href="#movieCarousel" role="button" data-slide="next">#}
+    {#            <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+    {#            <span class="sr-only">Next</span>#}
+    {#        </a>#}
+    {#    </div>#}
+    </div>
+</div>
 {% endblock content %}
 
 

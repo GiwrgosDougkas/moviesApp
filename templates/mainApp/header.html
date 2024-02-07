@@ -23,6 +23,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function adjustSelectWidth(select) {
+            var text = select.selectedOptions[0].text;
+            var tempSpan = document.createElement('span');
+            tempSpan.innerText = text;
+            document.body.appendChild(tempSpan);
+            var width = tempSpan.offsetWidth;
+            document.body.removeChild(tempSpan);
+
+            select.style.width = width + 50 + 'px';
+        }
+
+        $(document).ready(function() {
+            adjustSelectWidth(document.getElementById('searchDropdown'));
+        });
+    </script>
 </head>
 <body>
 <nav id="movie-navbar" class="navbar navbar-expand-lg navbar-dark">
@@ -83,6 +99,7 @@
         </a>
     </div>
 </nav>
+
 <div class="content">
     {% block content %}
     {% endblock %}
