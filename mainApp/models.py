@@ -44,6 +44,8 @@ class Movie(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     stream_url = models.CharField(max_length=250)
     summary = models.TextField()
+    image = models.ImageField(upload_to='movies_images', null=True);
+
 
     def __str__(self):
         return self.title
