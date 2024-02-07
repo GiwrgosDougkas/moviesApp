@@ -6,7 +6,39 @@ body {
     background: #000000 !important;
 }
 
-#imdb-nav {
+.btn-outline-success {
+    color: #f5c518 !important;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+.width-90 {
+    width: 90%;
+}
+
+.form-inline {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.custom-select-size {
+    min-width: 50px;
+    border-top-right-radius: unset!important;
+    border-bottom-right-radius: unset!important;
+}
+
+.search-input {
+    border-top-left-radius: unset!important;
+    border-bottom-left-radius: unset!important;
+}
+
+.custom-select-size option {
+    font-size: 16px;
+}
+
+#movie-nav {
     overflow-y: auto;
 }
 
@@ -50,8 +82,9 @@ body {
 .navbar {
     background: #121212;
 }
+
 .footer {
-	background-color: #121212!important;
+    background-color: #121212 !important;
 }
 
 .video-wrapper {
@@ -60,9 +93,12 @@ body {
 }
 
 h2 {
-    color: #f5c518!important;
+    color: #f5c518 !important;
 }
 
-p{
-    color: rgba(255,255,255,.5)
+h4 {
+    color:#28a745;
+}
+p {
+    color: rgba(255, 255, 255, .5)
 }
