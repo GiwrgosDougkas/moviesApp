@@ -2,7 +2,28 @@
 {% extends 'mainApp/header.html' %}
 
 {% block content %}
- hellloooooo
+<div id="imdb-nav" data-target="#imdb-navbar">
+    <div class="container">
+        <h4 class="title" id="trailer">Trailer</h4>
+        <div class="row trailer-wrapper">
+            <div class="col-sm-4 trailer-img-wrapper">
+                <img class="trailer-img img-fluid" src="https://wallpapercave.com/wp/wp5097093.jpg" alt="My Hero Academia Heroes Rising"/>
+            </div>
+            <div class="col-sm-8 trailer-video-wrapper">
+                <div class="video-wrapper">
+                    <iframe
+                            class="embed-responsive embed-responsive-21by9"
+                            src="https://www.youtube.com/embed/TQIogqaDQCM"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
 
