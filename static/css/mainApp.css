@@ -2,6 +2,11 @@
     font-style: "Roboto", "Helvetica", "Ariel", sans-serif;
 }
 
+h4,p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 body {
     background: #000000 !important;
     overflow: hidden;
@@ -107,4 +112,21 @@ p {
 .content {
         overflow-y: auto;
         max-height: calc(100vh - 115px);
+}
+
+.carousel-button {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-control-next {
+    right: 5px!important;
+}
+
+.carousel-control-prev {
+    left: 5px!important;
+}
+
+.movies-col{
+    max-width: 25%!important;
 }

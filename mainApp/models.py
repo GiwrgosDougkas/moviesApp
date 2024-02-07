@@ -41,10 +41,10 @@ class Movie(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     year = models.DateField()
     studio = models.ForeignKey(Studio, on_delete=models.CASCADE)
-    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
+    rating = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     stream_url = models.CharField(max_length=250)
     summary = models.TextField()
-    image = models.ImageField(upload_to='movies_images', null=True);
+    image = models.ImageField(upload_to='movies_images', null=True)
 
 
     def __str__(self):
