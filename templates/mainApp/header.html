@@ -77,6 +77,8 @@
                                 <!-- Add more categories as needed -->
                             </select>
                         </div>
+                        <input type="number" id="yearInput" name="year" min="1900" max="2200" style="display: none;">
+
                         <input id="searchInput" type="text" class="form-control search-input" placeholder="Search"
                                aria-label="Search"
                                aria-describedby="searchInput">
@@ -111,13 +113,11 @@
         document.body.removeChild(tempSpan);
 
         select.style.width = width + 50 + 'px';
-        if (select.value == '3') {
-            document.getElementById('categoryDropdown').style.display = 'block';
-            document.getElementById('searchInput').style.display = 'none';
-        } else {
-            document.getElementById('categoryDropdown').style.display = 'none';
-            document.getElementById('searchInput').style.display = 'block';
-        }
+        var value = select.value;
+        document.getElementById('categoryDropdown').style.display = value == '3' ? 'block' : 'none';
+        document.getElementById('yearInput').style.display = value == '4' ? 'block' : 'none';
+        document.getElementById('searchInput').style.display = value != '3' && value != '4' ? 'block' : 'none';
+
     }
 
     $(document).ready(function () {
