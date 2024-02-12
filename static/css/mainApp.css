@@ -2,11 +2,12 @@
     font-style: "Roboto", "Helvetica", "Ariel", sans-serif;
 }
 
-h4,p{
+h4, p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 body {
     background: #000000 !important;
     overflow: hidden;
@@ -31,13 +32,13 @@ body {
 
 .custom-select-size {
     min-width: 50px;
-    border-top-right-radius: unset!important;
-    border-bottom-right-radius: unset!important;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
 }
 
 .search-input {
-    border-top-left-radius: unset!important;
-    border-bottom-left-radius: unset!important;
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
 }
 
 .custom-select-size option {
@@ -103,15 +104,16 @@ h2 {
 }
 
 h4 {
-    color:#28a745;
+    color: #28a745;
 }
+
 p {
     color: rgba(255, 255, 255, .5)
 }
 
 .content {
-        overflow-y: auto;
-        max-height: calc(100vh - 115px);
+    overflow-y: auto;
+    max-height: calc(100vh - 115px);
 }
 
 .carousel-button {
@@ -120,13 +122,63 @@ p {
 }
 
 .carousel-control-next {
-    right: 5px!important;
+    right: 5px !important;
+    width: 100% !important;
 }
 
 .carousel-control-prev {
-    left: 5px!important;
+    left: 5px !important;
+    width: 100% !important;
 }
 
-.movies-col{
-    max-width: 25%!important;
+.movies-col {
+
+}
+
+.grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    display: grid;
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: dimgrey; /* Set your desired background color */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px !important;
+}
+
+.movie-img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 150px !important;
+}
+
+.movie-details {
+    padding: 10px;
+}
+
+
+.rating,
+.genre,
+.release-year {
+
+}
+
+.movie-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    height: 2.4em;
+    white-space: normal;
+    color: #ffd700 !important;
+}
+
+.start {
+    color: #ffd700;
+    font-size: 1.2em;
 }
