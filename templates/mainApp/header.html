@@ -23,22 +23,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function adjustSelectWidth(select) {
-            var text = select.selectedOptions[0].text;
-            var tempSpan = document.createElement('span');
-            tempSpan.innerText = text;
-            document.body.appendChild(tempSpan);
-            var width = tempSpan.offsetWidth;
-            document.body.removeChild(tempSpan);
-
-            select.style.width = width + 50 + 'px';
-        }
-
-        $(document).ready(function() {
-            adjustSelectWidth(document.getElementById('searchDropdown'));
-        });
-    </script>
 </head>
 <body>
 <nav id="movie-navbar" class="navbar navbar-expand-lg navbar-dark">
@@ -74,22 +58,33 @@
             </li>
         </ul>
         {% if renderSearch %}
-        <form class="form-inline my-2 my-lg-0">
-            <div class="input-group">
-                <div class="input-group-append">
-                    <select class="custom-select custom-select-size" id="searchDropdown"
-                            onchange="adjustSelectWidth(this)">
-                        <option value="all" selected>Any key</option>
-                        <option value="2">Option 1 </option>
-                        <option value="3">Option 1 wssdadsadsa </option>
-                        <option value="4">Option 1 wssdadsadsa </option>
-                    </select>
-                <input type="text" class="form-control search-input" placeholder="Search" aria-label="Search"
-                       aria-describedby="searchDropdown">
-                <button class="btn ml-2 btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <select class="custom-select custom-select-size" id="searchDropdown"
+                                onchange="adjustSelectWidth(this)">
+                            <option value="all" selected>Any key</option>
+                            <option value="2">Title</option>
+                            <option value="3">Category</option>
+                            <option value="4">Year</option>
+                        </select>
+                        <div id="categoryDropdown" style="display: none;">
+                            <select class="custom-select custom-select-size">
+                                {% for category in categories %}
+                                    <option value="{{ category.category }}">{{ category.category }}</option>
+                                {% endfor %}
+
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
+                        <input id="searchInput" type="text" class="form-control search-input" placeholder="Search"
+                               aria-label="Search"
+                               aria-describedby="searchInput">
+                        <button class="btn ml-2 btn-outline-success" type="submit"><i class="fas fa-search"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         {% endif %}
     </div>
     <div class="navbar-text d-none d-lg-block">
@@ -107,20 +102,27 @@
 
 {% include 'mainApp/footer.html' %}
 <script>
-        function adjustSelectWidth(select) {
-            var text = select.selectedOptions[0].text;
-            var tempSpan = document.createElement('span');
-            tempSpan.innerText = text;
-            document.body.appendChild(tempSpan);
-            var width = tempSpan.offsetWidth;
-            document.body.removeChild(tempSpan);
+    function adjustSelectWidth(select) {
+        var text = select.selectedOptions[0].text;
+        var tempSpan = document.createElement('span');
+        tempSpan.innerText = text;
+        document.body.appendChild(tempSpan);
+        var width = tempSpan.offsetWidth;
+        document.body.removeChild(tempSpan);
 
-            select.style.width = width + 50 + 'px';
+        select.style.width = width + 50 + 'px';
+        if (select.value == '3') {
+            document.getElementById('categoryDropdown').style.display = 'block';
+            document.getElementById('searchInput').style.display = 'none';
+        } else {
+            document.getElementById('categoryDropdown').style.display = 'none';
+            document.getElementById('searchInput').style.display = 'block';
         }
+    }
 
-        $(document).ready(function() {
-            adjustSelectWidth(document.getElementById('searchDropdown'));
-        });
+    $(document).ready(function () {
+        adjustSelectWidth(document.getElementById('searchDropdown'));
+    });
 </script>
 </body>
 </html>
