@@ -1,7 +1,33 @@
 {% extends 'mainApp/header.html' %}
 
 {% block content %}
-    <div class="mb-5">
+    {% if isSearching %}
+         <div class="container mt-4 ">
+            <div class="row mb-4">
+                <div class="col title ">
+                    All Movies
+                </div>
+            </div>
+            <div class="grid">
+                {% for movie in movies_all %}
+                    <div class="grid-item">
+                        <img class="movie-img img-fluid" src="{{ movie.image.url }}"
+                             alt="{{ movie.title }}"/>
+                        <div class="movie-details">
+                            <a class="movie-title" href="{% url 'movie_detail' pk=movie.pk %}">{{ movie.title }}</a>
+                            <p class="rating"><span
+                                    class="start">&#9733;</span>: {{ movie.rating }}</p>
+                            <p class="genre">Category: {{ movie.category }}</p>
+                            <p class="release-year">Year: {{ movie.year }}</p>
+                            <a class="btn btn-primary text-center"
+                               href="{% url 'movie_detail' pk=movie.pk %}">Watch</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="mb-5">
         <div id="movie-nav" data-target="#movie-navbar">
             <div class="container">
                 <h4 class="title" id="trailer">Recommended</h4>
@@ -57,7 +83,7 @@
                                                         <p class="genre">Category: {{ movie.category }}</p>
                                                         <p class="release-year">Year: {{ movie.year }}</p>
                                                         <a class="btn btn-primary text-center"
-                                                          href="{% url 'movie_detail' pk=movie.pk %}">Watch</a>
+                                                           href="{% url 'movie_detail' pk=movie.pk %}">Watch</a>
                                                     </div>
                                                 </div>
                                             {% endif %}
@@ -140,7 +166,7 @@
                         <img class="movie-img img-fluid" src="{{ movie.image.url }}"
                              alt="{{ movie.title }}"/>
                         <div class="movie-details">
-                            <a  class="movie-title" href="{% url 'movie_detail' pk=movie.pk %}">{{ movie.title }}</a>
+                            <a class="movie-title" href="{% url 'movie_detail' pk=movie.pk %}">{{ movie.title }}</a>
                             <p class="rating"><span
                                     class="start">&#9733;</span>: {{ movie.rating }}</p>
                             <p class="genre">Category: {{ movie.category }}</p>
@@ -154,7 +180,7 @@
         </div>
     </div>
     </div>
-    </div>
+    {% endif %}
 {% endblock content %}
 
 

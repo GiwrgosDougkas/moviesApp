@@ -58,18 +58,18 @@
             </li>
         </ul>
         {% if renderSearch %}
-            <form class="form-inline my-2 my-lg-0">
+            <div class="form-inline my-2 my-lg-0">
                 <div class="input-group">
                     <div class="input-group-append">
                         <select class="custom-select custom-select-size" id="searchDropdown"
                                 onchange="adjustSelectWidth(this)">
                             <option value="all" selected>Any key</option>
-                            <option value="2">Title</option>
-                            <option value="3">Category</option>
-                            <option value="4">Year</option>
+                            <option value="title">Title</option>
+                            <option value="category">Category</option>
+                            <option value="year">Year</option>
                         </select>
                         <div id="categoryDropdown" style="display: none;">
-                            <select class="custom-select custom-select-size">
+                            <select id="categorySelect" class="custom-select custom-select-size">
                                 {% for category in categories %}
                                     <option value="{{ category.category }}">{{ category.category }}</option>
                                 {% endfor %}
@@ -77,16 +77,16 @@
                                 <!-- Add more categories as needed -->
                             </select>
                         </div>
-                        <input type="number" id="yearInput" name="year" min="1900" max="2200" style="display: none;">
+                        <input type="number" id="yearInput" min="1900" max="2200" style="display: none;">
 
                         <input id="searchInput" type="text" class="form-control search-input" placeholder="Search"
                                aria-label="Search"
                                aria-describedby="searchInput">
-                        <button class="btn ml-2 btn-outline-success" type="submit"><i class="fas fa-search"></i>
+                        <button id="searchButton" class="btn ml-2 btn-outline-success"><i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
         {% endif %}
     </div>
     <div class="navbar-text d-none d-lg-block">
@@ -114,15 +114,41 @@
 
         select.style.width = width + 50 + 'px';
         var value = select.value;
-        document.getElementById('categoryDropdown').style.display = value == '3' ? 'block' : 'none';
-        document.getElementById('yearInput').style.display = value == '4' ? 'block' : 'none';
-        document.getElementById('searchInput').style.display = value != '3' && value != '4' ? 'block' : 'none';
+        document.getElementById('categoryDropdown').style.display = value == 'category' ? 'block' : 'none';
+        document.getElementById('yearInput').style.display = value == 'year' ? 'block' : 'none';
+        document.getElementById('searchInput').style.display = value != 'category' && value != 'year' ? 'block' : 'none';
 
     }
 
     $(document).ready(function () {
         adjustSelectWidth(document.getElementById('searchDropdown'));
     });
+
+    document.getElementById('searchButton').addEventListener('click',
+        function () {
+            var currentUrl = window.location.href;
+
+            // Find the index of the '?' character (if any) in the URL
+            var index = currentUrl.indexOf('?');
+            var mainUrl = index !== -1 ? currentUrl.substring(0, index) : currentUrl;
+
+            var searchDropdownValue = document.getElementById('searchDropdown').value;
+
+            var queryString = '';
+
+            if (searchDropdownValue == 'year') {
+                var yearInputValue = encodeURIComponent(document.getElementById('yearInput').value.trim());
+                queryString += 'year=' + yearInputValue;
+            } else if (searchDropdownValue == 'category') {
+
+                var categorySelectValue = encodeURIComponent(document.getElementById('categorySelect').value.trim());
+                queryString += 'category=' + categorySelectValue;
+            } else {
+                var searchInputValue = encodeURIComponent(document.getElementById('searchInput').value.trim());
+                queryString += searchDropdownValue + '=' + searchInputValue;
+            }
+            window.location.href = mainUrl + '?' + queryString;
+        });
 </script>
 </body>
 </html>
