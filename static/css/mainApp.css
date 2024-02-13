@@ -6,12 +6,13 @@ h4, p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 3px !important;
 }
 
 body {
     background: #000000 !important;
     overflow: hidden;
-    color: rgba(255, 255, 255, .5)!important;
+    color: rgba(255, 255, 255, .5) !important;
 }
 
 .btn-outline-success {
@@ -133,8 +134,7 @@ h4 {
 }
 
 .grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     display: grid;
     gap: 20px;
 }
@@ -151,7 +151,7 @@ h4 {
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    height: 150px !important;
+    height: 250px !important;
 }
 
 .movie-details {

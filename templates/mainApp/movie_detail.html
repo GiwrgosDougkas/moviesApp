@@ -7,7 +7,7 @@
                 <h4 class="title" id="trailer">{{ movie.title }}</h4>
                 <div class="row trailer-wrapper">
                     <div class="col-sm-4 trailer-img-wrapper">
-                        <img class="movie-img img-fluid" src="{{ movie.image.url }}"
+                        <img class="img-fluid" src="{{ movie.image.url }}"
                              alt="{{ movie.title }}"/>
                     </div>
                     <div class="col-sm-8 trailer-video-wrapper">
@@ -30,10 +30,14 @@
                 <p class="rating d-inline-block mr-4"><span
                         class="start">&#9733;</span>: Rating: {{ movie.rating }}/10</p>
                 <p class="genre d-inline-block mr-4">Category: {{ movie.category }}</p>
-                <p class="release-year d-inline-block">Published Year: {{ movie.year }}</p>
+                <p class="release-year d-inline-block mr-4">Published Year: {{ movie.year }}</p>
+                <p class="release-year d-inline-block">{{ movie.duration_minutes }} min</p>
+                <div>
+                    <p class =mr-4>Director: {{ movie.director }}</p>
+                    <p class =mr-4>Studio: {{ movie.studio }}</p>
+                </div>
                 <h3 class="summary">Summary:</h3>
                 <div>{{ movie.summary }}</div>
-
             </div>
         </div>
 
