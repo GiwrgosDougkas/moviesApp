@@ -15,6 +15,7 @@ def post_list(request):
     parameters = ['all', 'category', 'title', 'year']
     getRequest = request.GET;
     param_name = ''
+    search_key = ''
     if(len(getRequest) > 0):
         for param in parameters:
             if request.GET.__contains__(param):
@@ -25,18 +26,23 @@ def post_list(request):
 
     if param_name == 'all':
         moviesAll = moviesAll.filter(Q(title__contains=param_value) | Q(summary__contains=param_name))
+        search_key = 'Any key in title,summary: ' + param_value
     elif param_name == 'title':
         moviesAll = moviesAll.filter(title__contains=param_value)
+        search_key = 'Title: '+param_value
     elif param_name == 'category':
         moviesAll = moviesAll.filter(category__category=param_value)
+        search_key = 'Category: '+param_value
     elif param_name == 'year':
         moviesAll = moviesAll.filter(year__year=param_value)
+        search_key = 'Year: '+param_value
+
 
     categories = Category.objects.all()
     moviesYear = list(zip_longest(*[iter(moviesAll.order_by("-year"))]*4))
     moviesRating = list(zip_longest(*[iter(moviesAll.order_by("-rating"))]*4))
 
-    return render(request, 'mainApp/movie_list.html', {'movies_all': moviesAll, 'movies_year': moviesYear, 'renderSearch': renderSearch, 'movies_rating': moviesRating, 'categories': categories, 'isSearching': isSearching})
+    return render(request, 'mainApp/movie_list.html', {'movies_all': moviesAll, 'movies_year': moviesYear, 'renderSearch': renderSearch, 'movies_rating': moviesRating, 'categories': categories, 'isSearching': isSearching, 'search_key': search_key})
 
 
 def about_us(request):
