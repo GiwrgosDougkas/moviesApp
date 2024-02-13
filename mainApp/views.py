@@ -8,7 +8,7 @@ from mainApp.models import Movie, Category
 
 # Create your views here.
 
-def post_list(request):
+def movies_list(request):
     renderSearch = True
     isSearching = False;
     moviesAll = Movie.objects.all().order_by("-title");

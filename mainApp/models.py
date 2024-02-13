@@ -23,7 +23,6 @@ class Director(models.Model):
         ('male', 'Male'),
         ('female', 'Female'),
     )
-    genre = models.CharField(max_length=10, choices=GENDER_CHOICES)
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     genre = models.CharField(max_length=10, choices=GENDER_CHOICES)
