@@ -29,7 +29,7 @@
             <div class="movie-details">
                 <p class="rating d-inline-block mr-4"><span
                         class="start">&#9733;</span>: Rating: {{ movie.rating }}/10</p>
-                <p class="genre d-inline-block mr-4">Category: {{ movie.category }}</p>
+                <p class="genre d-inline-block mr-4">Category: <a href="/?category={{ movie.category }}">{{ movie.category }}</a> </p>
                 <p class="release-year d-inline-block mr-4">Published Year: {{ movie.year }}</p>
                 <p class="release-year d-inline-block">{{ movie.duration_minutes }} min</p>
                 <div>
